@@ -1,11 +1,11 @@
 # Redis数据库地址
-REDIS_HOST = 'localhost'
+REDIS_HOST = '49.233.88.42'
 
 # Redis端口
 REDIS_PORT = 6379
 
 # Redis密码，如无填None
-REDIS_PASSWORD = 'foobared'
+REDIS_PASSWORD = None
 
 # 产生器使用的浏览器
 BROWSER_TYPE = 'Chrome'
@@ -25,7 +25,7 @@ TEST_URL_MAP = {
 }
 
 # 产生器和验证器循环周期
-CYCLE = 120
+CYCLE = 180
 
 # API地址和端口
 API_HOST = '0.0.0.0'
