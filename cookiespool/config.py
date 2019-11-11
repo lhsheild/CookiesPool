@@ -12,7 +12,8 @@ BROWSER_TYPE = 'Chrome'
 
 # 产生器类，如扩展其他站点，请在此配置
 GENERATOR_MAP = {
-    'weibo': 'WeiboCookiesGenerator'
+    'weibo': 'WeiboCookiesGenerator',
+    'qidian': 'QidianCookiesGenerator'
 }
 
 # 测试类，如扩展其他站点，请在此配置
