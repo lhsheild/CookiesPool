@@ -163,8 +163,8 @@ class QidianCookies():
         distance, template = self.get_distance()
         double_distance = int((distance - 70 + 20) / 2)
         tracks = self.get_tracks(distance, double_distance)
-        print('tracks: ', tracks)
         tracks.append(-(sum(tracks) - double_distance))
+        print('tracks: ', tracks)
         slider_btn = self.browser.find_element_by_id('tcaptcha_drag_thumb')
         ActionChains(self.browser).click_and_hold(on_element=slider_btn).perform()
         for track in tracks:
