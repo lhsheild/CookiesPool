@@ -34,14 +34,15 @@ class CookiesGenerator(object):
             self.browser = webdriver.PhantomJS(desired_capabilities=caps)
             self.browser.set_window_size(1400, 500)
         elif BROWSER_TYPE == 'Chrome':
-            chrome_driver = r"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+            # chrome_driver = r"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
             options = webdriver.ChromeOptions()
             # 此步骤很重要，设置为开发者模式，防止被各大网站识别出来使用了Selenium
             options.add_experimental_option('excludeSwitches', ['enable-automation'])
             options.add_argument('--headless')
             # driver = webdriver.Chrome(chromedriver, options=options)
-            self.browser = webdriver.Chrome(executable_path=chrome_driver, options=options)
-    
+            # self.browser = webdriver.Chrome(executable_path=chrome_driver, options=options)
+            self.browser = webdriver.Chrome(options=options)
+
     def new_cookies(self, username, password):
         """
         新生成Cookies，子类需要重写
