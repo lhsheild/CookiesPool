@@ -39,6 +39,9 @@ class CookiesGenerator(object):
             # 此步骤很重要，设置为开发者模式，防止被各大网站识别出来使用了Selenium
             options.add_experimental_option('excludeSwitches', ['enable-automation'])
             options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
+            options.add_argument("window-size=1024,768")
+            options.add_argument("--no-sandbox")
             # driver = webdriver.Chrome(chromedriver, options=options)
             # self.browser = webdriver.Chrome(executable_path=chrome_driver, options=options)
             self.browser = webdriver.Chrome(options=options)
