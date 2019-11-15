@@ -41,11 +41,6 @@ class QidianCookies():
         """
         self.browser.delete_all_cookies()
         self.browser.get(self.url)
-        # login_btn = wait.until(
-        #     EC.element_to_be_clickable((By.XPATH, '//a[@id="login-btn"]'))
-        # )
-        # login_btn.click()
-        # driver.switch_to.frame('loginIfr')
         username_input = self.wait.until(
             EC.element_to_be_clickable((By.ID, 'username'))
         )
@@ -191,7 +186,7 @@ class QidianCookies():
         """
         self.open()
         if self.password_error():
-            self.browser.quit()
+            # self.browser.quit()
             return {
                 'status': 2,
                 'content': '用户名或密码错误'
@@ -199,7 +194,7 @@ class QidianCookies():
         # 如果不需要验证码直接登录成功
         if self.login_successfully():
             cookies = self.get_cookies()
-            self.browser.quit()
+            # self.browser.quit()
             return {
                 'status': 1,
                 'content': cookies
@@ -207,14 +202,19 @@ class QidianCookies():
         self.crack()
         if self.login_successfully():
             cookies = self.get_cookies()
-            self.browser.quit()
+            # self.browser.quit()
             return {
                 'status': 1,
                 'content': cookies
             }
         else:
-            self.browser.quit()
+            # self.browser.quit()
             return {
                 'status': 3,
                 'content': '登录失败'
             }
+
+
+if __name__ == '__main__':
+    result = QidianCookies('18178007095', 'Qidian911016').main()
+    print(result)
