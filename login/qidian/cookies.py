@@ -171,6 +171,19 @@ class QidianCookies():
             ActionChains(self.browser).move_by_offset(xoffset=track, yoffset=0).perform()
         time.sleep(0.5)
         ActionChains(self.browser).release(on_element=slider_btn).perform()
+        try:
+            print('需要输入手机验证码')
+            temp = WebDriverWait(self.browser, 5).until(
+                EC.element_to_be_clickable((By.ID, 'sendPhoneMsgByKey')))
+            send_code_btn = self.browser.find_element_by_id('sendPhoneMsgByKey')
+            send_code_btn.click()
+            code = input('输入手机验证码')
+            code_input = self.browser.find_element_by_xpath('//div[@class="risk-code phone-mode"]/dl/dd/input')
+            code_input.send_keys(code)
+            submit_btn = self.browser.find_element_by_id('riskSendPhoneMsgSubmit')
+            submit_btn.click()
+        except TimeoutException:
+            return False
 
     def get_cookies(self):
         """
